@@ -1,14 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+  body {
+    background-color: #343a40;
+    /* Cor de fundo mais escura */
+    /* color: #ffffff;
+    Cor do texto para melhor legibilidade */
+  }
 
-<head>
-  <meta charset="UTF-8">
-  <title>Index</title>
-</head>
+  .jumbotron {
+    background-color: #343a40;
+    /* Cor de fundo da jumbotron */
+    text-align: center;
+  }
 
-<body>
-  <h1>Rota da página Principal da nossa WEB APP</h1>
-  <h1>Uso de render_template</h1>
-</body>
+  .custom-border {
+    background-color: #ffffff;
+    /* Cor de fundo da div com bordas arredondadas */
+    border: 1px solid #ced4da;
+    /* Cor da borda */
+    border-radius: 1rem;
+    /* Borda arredondada */
+    padding: 2rem; /* Adiciona um espaço interno à div */
+    max-width: 800px; /* Define a largura máxima da div */
+    margin: 0 auto; /* Centraliza a div na jumbotron */
+  }
+</style>
 
-</html>
+<div class="jumbotron">
+  <div class="custom-border">
+    <h1 class="display-2">Bem-vindo à Pizzaria Do zé</h1>
+    <p class="lead">A melhor pizza da região, feita com ingredientes frescos e sabor inigualável.</p>
+    <hr class="my-4">
+    <p>Peça agora e experimente uma explosão de sabores!</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('cliente.formCliente') }}" role="button">Faça seu Cadastro</a>
+  </div>
+</div>
+{% endblock %}
