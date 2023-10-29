@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{{result}}
 {% block title %}Produto{% endblock %}
 {% block content %}
 <style>
@@ -15,6 +16,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Id</th>
           <th>Foto</th>
           <th>Nome</th>
           <th>Descrição</th>
@@ -22,20 +24,22 @@
         </tr>
       </thead>
       <tbody>
+        {% if result %}
+        {% for row in result %}
         <tr>
-          <th scope="row">...</th>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
+          <th scope="row">{{ row['id_produto'] }}</th>
+          <td> {{ row['foto'] }}</td>
+          <td> {{ row['nome'] }}</td>
+          <td> {{ row['descricao'] }}</td>
+          <td> {{ row['valor_unitario'] }}</td>
           <td><i class="fas fa-edit"></i></td>
           <td><i class="fas fa-trash"></i></td>
         </tr>
+        {% endfor %}
+        {% endif %}
       </tbody>
     </table>
-    <a href="{{ url_for('produto.formProduto') }}" method="GET" class="btn btn-primary">Cadastrar Novo
+    <a href="{{ url_for('produto.formProduto') }}" method="POST" class="btn btn-primary">Cadastrar Novo
       Produto</a>
   </div>
 </div>

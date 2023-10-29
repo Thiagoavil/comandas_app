@@ -19,7 +19,15 @@
   <div class="p-4 bg-light border rounded">
     <h1 class="mb-4">Cadastro de Cliente</h1>
     <div class="form-group row">
-      <form name="formAdicionarCliente" id="formAdicionarCliente" action="" method="POST">
+      <form name="formAdicionarCliente" id="formAdicionarCliente" action="{{ url_for('cliente.insert')}}" method="POST">
+        <div class="form-group row">
+        
+          <label for="id" class="col-sm-2 col-form-label">Código</label>
+          <div class="col-sm-2">
+            <input type="text" name="id" id="id" value="0" placeholder="Código" readonly class="form-control">
+          </div>
+
+        </div>
         <div class="form-group row">
 
           <label for="nome" class="col-sm-2 col-form-label">Nome</label>
@@ -28,10 +36,15 @@
               required class="form-control">
           </div>
 
-          <label for="diaFiado" class="col-sm-2 col-form-label">Dia Fiado</label>
+          <label for="dia_fiado" class="col-sm-2 col-form-label">Dia Fiado</label>
           <div class="col-sm-2">
-            <input type="date" name="diaFiado" id="diaFiado" class="form-control">
+            <input type="text" name="dia_fiado" id="dia_fiado" value="" placeholder="10" maxlength="100" autofocus
+              required class="form-control">
           </div>
+          <!-- <label for="diaFiado" class="col-sm-2 col-form-label">Dia Fiado</label>
+          <div class="col-sm-2">
+            <input type="date" name="dia_fiado" id="dia_fiado" class="form-control">
+          </div> -->
 
         </div>
         <div class="form-group row">
@@ -41,12 +54,13 @@
             <input type="text" name="cpf" id="cpf" value="" placeholder="CPF" maxlength="15" required
               class="form-control">
           </div>
-
+          
+          
           <label for="fiado" class="col-sm-2 col-form-label">Compra Fiado</label>
           <div class="col-sm-2">
-            <select name="fiado" id="fiado" aria-label="Compra Fiado" class="form-control" required>
-              <option value="Sim">Sim</option>
-              <option value="Não">Não</option>
+            <select name="compra_fiado" id="compra_fiado" aria-label="Compra Fiado" class="form-control" required>
+              <option value=0 >Sim</option>
+              <option value=1 >Não</option>
             </select>
           </div>
 
