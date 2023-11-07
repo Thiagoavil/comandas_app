@@ -40,6 +40,7 @@ def insert():
         response = requests.post(ENDPOINT_CLIENTE, headers=HEADERS_API, json=payload)
         result = response.json()
 
+        print(result[0])
         print(result) # [{'msg': 'Cadastrado com sucesso!', 'id': 13}, 200]
         print(response.status_code) # 200
 
@@ -63,11 +64,10 @@ def formEditCliente():
         # obtendo o JSON do retorno
         response = requests.get(ENDPOINT_CLIENTE + id_cliente, headers=HEADERS_API)
         result = response.json()
-        
+         
         if (response.status_code != 200):
           raise Exception(result[0])
-
-        print(result[0])
+       
         # renderiza o form passando os dados retornados
         return render_template('formCliente.html', result=result[0])
     

@@ -63,7 +63,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
-
 {% block js %}
 <script>
   $("form[name='jsDelete']").submit(function (e) {
@@ -82,9 +81,9 @@
   })
   // sempre pega a url da barra de endereço
   $SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
-  function deletarCliente(idcliente) {
+  function deletarCliente(idCliente) {
     $.post($SCRIPT_ROOT + "{{ url_for('cliente.delete') }}", {
-      id_cliente: idcliente
+      id_cliente: idCliente
     }, function (data) {
       if (!data.erro) {
         Swal.fire({
