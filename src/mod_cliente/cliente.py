@@ -112,7 +112,9 @@ def delete():
       response = requests.delete(ENDPOINT_CLIENTE + id_cliente, headers=HEADERS_API)
       result = response.json()
       
-      if (response.status_code != 200 or result[1] != 200):
+      print(result)
+      
+      if (response.status_code != 200 or result[1] != 201):
         raise Exception(result[0])
       
       # return redirect(url_for('funcionario.formListaFuncionario', msg=result[0]))

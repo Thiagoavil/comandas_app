@@ -118,6 +118,7 @@ def delete():
       response = requests.delete(ENDPOINT_PRODUTO + id_produto, headers=HEADERS_API)
       result = response.json()
       print(result)
+      
       if (response.status_code != 200 or result[1] != 200):
         raise Exception(result[0])
       
