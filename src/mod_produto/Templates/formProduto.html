@@ -2,9 +2,9 @@
 {% block title %}Produto{% endblock %}
 
   {# ajusta as variáveis conforme novo ou edit #}
-  {% set id = result[0].id_funcionario if result else '0' %}
+  {% set id = result[0].id_produto if result else '0' %}
   {% set nome = result[0].nome if result else '' %}
-  {% set descicao = result[0].descricao if result else '' %}
+  {% set descricao = result[0].descricao if result else '' %}
   {% set foto = result[0].foto if result else '' %}
   {% set valor_unitario = result[0].valor_unitario if result else '' %}
 
@@ -27,6 +27,7 @@
       <form name="{{ 'formEditar' if result else 'formAdicionar' }}"
             id="{{ 'formEditar' if result else 'formAdicionar' }}"
             action="{{ url_for('produto.edit') if result else url_for('produto.insert') }}"
+            enctype="multipart/form-data"
             method="POST">
         <div class="form-group row">
 

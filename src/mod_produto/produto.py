@@ -104,18 +104,20 @@ def edit():
       return redirect(url_for('produto.formListaProduto', msg=result[0]))
     
     except Exception as e:
+      print(e.args[0])
       return render_template('formListaProduto.html', msgErro=e.args[0])
 
 @bp_produto.route('/delete', methods=['POST'])
 def delete():
     try:
+      print("delete")
       # dados enviados via FORM
       id_produto = request.form['id_produto']
       
       # executa o verbo DELETE da API e armazena seu retorno
       response = requests.delete(ENDPOINT_PRODUTO + id_produto, headers=HEADERS_API)
       result = response.json()
-      
+      print(result)
       if (response.status_code != 200 or result[1] != 200):
         raise Exception(result[0])
       

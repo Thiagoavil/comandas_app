@@ -55,7 +55,6 @@
   </div>
 </div>
 
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -73,7 +72,7 @@
       cancelButtonText: 'Cancelar', confirmButtonText: 'Sim'
     }).then((result) => {
       if (result.isConfirmed) {
-        deletarFuncionario($(e.target)[0][0].value); // Retorna o valor que está no id
+        deletarProduto($(e.target)[0][0].value); // Retorna o valor que está no id
       }
     })
   })
