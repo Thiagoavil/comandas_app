@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
+
+{% if 'login' in session %}
+Bem-vindo <b>{{ session['login'] }}</b>
+{% endif %}
+
 {% block content %}
 <style>
   body {
