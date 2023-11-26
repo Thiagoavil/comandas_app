@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for,session
 from funcoes import Funcoes
 from functools import wraps
 
-bp_login = Blueprint( ' login' , __name__,url_prefix='/',	template_folder='templates' )
+bp_login = Blueprint( 'login' , __name__,url_prefix='/',	template_folder='templates' )
 
 @bp_login.route('/' , methods = ['GET', 'POST'])
 def login():
@@ -45,10 +45,10 @@ def validaSessao(f):
   @wraps(f)
   def decorated_function(*args, **kwargs):
     if 'login' not in session:
-      # descarta os dados copiados da função original e retorna a tela de login
+    # descarta os dados copiados da função original e retorna a tela de login
       return redirect(url_for('login.login', msgErro='Usuário não logado!'))
     else:
-      # retorna os dados copiados da função original
+    # retorna os dados copiados da função original
       return f(*args, **kwargs)
-  # retorna o resultado do if acima
+    # retorna o resultado do if acima
   return decorated_function
