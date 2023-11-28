@@ -8,6 +8,7 @@ bp_funcionario = Blueprint('funcionario', __name__, url_prefix="/funcionario", t
 
 ''' rotas dos formulários '''
 @bp_funcionario.route('/', methods=['GET','POST'])
+@validaSessao
 def formListaFuncionario():
   try:
     response = requests.get(ENDPOINT_FUNCIONARIO, headers=HEADERS_API)
@@ -26,6 +27,7 @@ def formFuncionario():
   return render_template('formFuncionario.html')
 
 @bp_funcionario.route('/insert', methods=['POST'])
+@validaSessao
 def insert():
     try:
         # dados enviados via FORM
@@ -57,6 +59,7 @@ def insert():
       return render_template('formListaFuncionario.html', msgErro=e.args[0])
 
 @bp_funcionario.route("/form-edit-funcionario", methods=['POST'])
+@validaSessao
 def formEditFuncionario():
     try:
         # ID enviado via FORM
@@ -78,6 +81,7 @@ def formEditFuncionario():
       return render_template('formListaFuncionario.html', msgErro=e.args[0])
 
 @bp_funcionario.route('/edit', methods=['POST'])
+@validaSessao
 def edit():
     try:
       # dados enviados via FORM
@@ -106,6 +110,7 @@ def edit():
       return render_template('formListaFuncionario.html', msgErro=e.args[0])
 
 @bp_funcionario.route('/delete', methods=['POST'])
+@validaSessao
 def delete():
     try:
       # dados enviados via FORM

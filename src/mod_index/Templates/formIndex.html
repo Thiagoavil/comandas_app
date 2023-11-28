@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 
-{% if 'login' in session %}
-Bem-vindo <b>{{ session['login'] }}</b>
-{% endif %}
 
 {% block content %}
 <style>
@@ -35,7 +32,11 @@ Bem-vindo <b>{{ session['login'] }}</b>
 
 <div class="jumbotron">
   <div class="custom-border">
-    <h1 class="display-2">Bem-vindo à Pizzaria Do zé</h1>
+    <h1 class="display-2">
+      {% if 'login' in session %}
+        Bem-vindo <b>{{ session['login'] }}</b>
+        Você é um <b>{{session['grupo'] }}</b>
+      {% endif %}</h1>
     <p class="lead">A melhor pizza da região, feita com ingredientes frescos e sabor inigualável.</p>
     <hr class="my-4">
     <p>Peça agora e experimente uma explosão de sabores!</p>
